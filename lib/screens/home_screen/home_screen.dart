@@ -1,16 +1,18 @@
-import 'package:drag_drop_editor_poc/screens/editor_screen/editor_screen.dart';
+import 'package:drag_drop_editor_poc/providers/slides.dart';
+import 'package:drag_drop_editor_poc/screens/create_highlight_screen/create_highlight_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-class MyHomePage extends StatefulWidget {
+class MyHomePage extends ConsumerStatefulWidget {
   const MyHomePage({
     super.key,
   });
 
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  ConsumerState<MyHomePage> createState() => _MyHomePageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _MyHomePageState extends ConsumerState<MyHomePage> {
   int _counter = 0;
 
   @override
@@ -36,9 +38,12 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
+          ref.watch(createSlideProvider.notifier).createInitialSlide(
+                indexAfter: 0,
+              );
           Navigator.of(context).push(
             MaterialPageRoute(
-              builder: (context) => const EditorScreen(),
+              builder: (context) => const CreateHighlightScreen(),
             ),
           );
         },

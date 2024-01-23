@@ -270,6 +270,15 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "3.3.1"
+  flutter_colorpicker:
+    dependency: "direct main"
+    description:
+      path: "."
+      ref: HEAD
+      resolved-ref: "094fd2cd48162539da6dc24ad300833849f2003a"
+      url: "https://github.com/SaileshVerma/flutter_colorpicker.git"
+    source: git
+    version: "1.0.3"
   flutter_dotenv:
     dependency: "direct main"
     description:
